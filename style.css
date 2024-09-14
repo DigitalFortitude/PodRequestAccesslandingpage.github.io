@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    /* == Fonts == */
+    --main-font: 'Chivo';
+    /* == Colors == */
+    --green : hsl(157, 74%, 62%);
+    --green-014 : hsla(157, 74%, 62%, 0.14);
+    --green-hover : hsl(157, 75%, 81%);
+    --blue-950 : hsl(224, 35%, 11%);
+    --blue-900 : hsl(225, 26%, 23%);
+    --blue-600 : hsl(225, 21%, 45%);
+    --blue-300 : hsl(225, 40%, 83%);
+    --white : hsl(0, 0%, 100%);
+    --white-050 : hsla(0, 0%, 100%, 0.5);
+    --red : hsl(0, 96%, 61%);
+}
+.body__container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--white);
+    background-color: var(--blue-950);
+    font-family: var(--main-font), 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+    overflow: hidden;
+}
+.body__container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('./assets/bg-raw-multiply.png');
+    background-repeat: no-repeat;
+    background-size: auto 101vh;
+    background-position: -496px center;
+    opacity: 12%;
+}
+.layout{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 36px;
+    width: 100%;
+    height: 100vh;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 56px;
+}
+.logo{
+    width: auto;
+    height: 56px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    display: grid;
+    grid-template-areas: 
+        "title"
+        "description"
+        "platform"
+        "form";
+}
+.content--title{
+    grid-area: title;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+}
+.content--title-green{
+    color: var(--green);
+}
+.content--text{
+    grid-area: description;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--blue-300);
+    text-align: center;
+}
+.platform{
+    grid-area: platform;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    max-width: 100%;
+}
+.platform--item-spotify{
+    width: auto;
+    height: 16.95px;
+}
+.platform--item-apple{
+    width: auto;
+    height: 17px;
+}
+.platform--item-google{
+    width: auto;
+    height: 10.67px;
+}
+.platform--item-pocket{
+    width: auto;
+    height: 14.9px;
+}
+.form{
+    grid-area: form;
+    z-index: 2;
+    position: relative;
+}
+.input--email{
+    margin-bottom: 8px;
+    padding: 6px;
+    padding-left: 28px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--blue-900);
+    border: 2px solid var(--blue-900);
+    border-radius: 99px;
+}
+.input--email::placeholder{
+    color: var(--white);
+    opacity: 0.5;
+}
+.input--email-error{
+    border-color: var(--red);
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 32px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: 700;
+    color: var(--blue-950);
+    background-color: var(--green);
+    border: none;
+    border-radius: 99px;
+    box-shadow: 0 2px 4px var(--green-014);
+    cursor: pointer;
+}
+.btn:hover, .btn:focus, .btn:active{
+    background-color: var(--green-hover);
+}
+.error__msg{
+    position: absolute;
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    color: var(--red);
+}
+.footer{
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    color: var(--white);
+    font-family: var(--main-font), 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+}
+.footer__signature{
+    display: flex;
+    flex-direction: column;
+}
+.footer--link{
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--green);
+}
+@media(min-width: 768px){
+    .body__container{
+        min-height: 1024px;
+        overflow: visible;
+        overflow-x: hidden;
+    }
+    .body__container::before{
+        content: '';
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 308px;
+        min-height: 1024px;
+        background-color: var(--blue-950);
+    }
+    .body__container::after{
+        min-height: 1024px;
+        background-image: url('./assets/desktop/bg-pattern-dots.svg'), url('./assets/bg-raw-multiply.png');
+        background-repeat: no-repeat, no-repeat;
+        background-size: auto 104px, auto 868px;
+        background-position: top 816px right -126px, top right -396px;
+        opacity: 100%;
+    }
+    .layout{
+        justify-content: left;
+        padding: 44px;
+        min-height: 1024px;
+    }
+    .header{
+        justify-content: left;
+        padding-bottom: 104px;
+    }
+    .main{
+        background-color: var(--blue-950);
+        width: 592px;
+    }
+    .content{
+        padding-top: 88px;
+        padding-right: 64px;
+        grid-template-areas: 
+            "title"
+            "description"
+            "form"
+            "platform";
+    }
+    .content--title{
+        margin-bottom: 24px;
+        font-size: 48px;
+        line-height: 58px;
+        text-align: left;
+    }
+    .content--text{
+        max-width: 448px;
+        font-size: 18px;
+        line-height: 27px;
+        text-align: left;
+    }
+    .platform{
+        margin: 0;
+        padding-top: 24px;
+        padding-bottom: 2px;
+    }
+    .platform--item-spotify{
+        width: auto;
+        height: 28.91px;
+    }
+    .platform--item-apple{
+        width: auto;
+        height: 29px;
+    }
+    .platform--item-google{
+        width: auto;
+        height: 17.47px;
+    }
+    .platform--item-pocket{
+        width: auto;
+        height: 25.83px;
+    }
+    .form{
+        margin: 40px 0;
+        width: fit-content;
+    }
+    .input--group{
+        position: relative;
+    }
+    .input--email{
+        margin-bottom: 0;
+        padding: 11px 0;
+        padding-left: 24px;
+        padding-right: 180px;
+        width: 448px;
+        height: 52px;
+    }
+    .btn{
+        position: absolute;
+        top: 50%;
+        right: 4px;
+        transform: translateY(-50%);
+        margin-bottom: 0;
+        padding: 8px 32px;
+        width: fit-content;
+    }
+    .error__msg{
+        position: absolute;
+        padding-left: 26px;
+        width: fit-content;
+        text-align: left;
+    }
+}
+@media(min-width: 1440px){
+    .body__container{
+        min-height: 960px;
+    }
+    .body__container::before{
+        width: 544px;
+        min-height: 960px;
+    }
+    .body__container::after{
+        min-height: 960px;
+        background-size: auto 104px, auto 654px;
+        background-position: top calc(50% + 326px) right, top 50% right -72px;
+    }
+    .layout{
+        justify-content: center;
+        padding: 80px;
+        min-height: 960px;
+    }
+    .main{
+        width: 1120px;
+        background: none;
+    }
+    .content{
+        max-width: 736px;
+        background-color: var(--blue-950);
+    }
+    .platform{
+        max-width: 548px;
+    }
+}
